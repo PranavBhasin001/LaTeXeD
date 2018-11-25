@@ -15,7 +15,6 @@
 * [Muskaan Goyal]
 
 ## <a name ="intro"></a> Introduction
- and so the southern regions are colored yellow.
 
 ## <a name ="func"></a> Functionalities
 
@@ -25,5 +24,7 @@
 
 ## <a name ="var"></a> Future Prospects
 
+[Pranav Bhasin]: https://github.com/PranavBhasin001
+[Muskaan Goyal]: https://github.com/muskaangoyal
 
 
