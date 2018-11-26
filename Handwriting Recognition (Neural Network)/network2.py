@@ -1,16 +1,3 @@
-"""network2.py
-~~~~~~~~~~~~~~
-
-An improved version of network.py, implementing the stochastic
-gradient descent learning algorithm for a feedforward neural network.
-Improvements include the addition of the cross-entropy cost function,
-regularization, and better initialization of network weights.  Note
-that I have focused on making the code simple, easily readable, and
-easily modifiable.  It is not optimized, and omits many desirable
-features.
-
-"""
-
 #### Libraries
 # Standard library
 import json
@@ -19,7 +6,6 @@ import sys
 
 # Third-party libraries
 import numpy as np
-
 
 #### Define the quadratic and cross-entropy cost functions
 
@@ -253,12 +239,7 @@ class Network(object):
         delta = (self.cost).delta(zs[-1], activations[-1], y)
         nabla_b[-1] = delta
         nabla_w[-1] = np.dot(delta, activations[-2].transpose())
-        # Note that the variable l in the loop below is used a little
-        # differently to the notation in Chapter 2 of the book.  Here,
-        # l = 1 means the last layer of neurons, l = 2 is the
-        # second-last layer, and so on.  It's a renumbering of the
-        # scheme in the book, used here to take advantage of the fact
-        # that Python can use negative indices in lists.
+
         for l in range(2, self.num_layers):
             z = zs[-l]
             sp = sigmoid_prime(z)
@@ -325,7 +306,7 @@ class Network(object):
         json.dump(data, f)
         f.close()
 
-#### Loading a Network
+# Loading a Network
 def load(filename):
     """Load a neural network from the file ``filename``.  Returns an
     instance of Network.
@@ -340,7 +321,6 @@ def load(filename):
     net.biases = [np.array(b) for b in data["biases"]]
     return net
 
-#### Miscellaneous functions
 def vectorized_result(j):
     """Return a 10-dimensional unit vector with a 1.0 in the j'th position
     and zeroes elsewhere.  This is used to convert a digit (0...9)
